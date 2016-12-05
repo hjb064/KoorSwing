@@ -39,12 +39,21 @@
  */
 
 html {
-  background: $page;
+	
+// KS 	
+  background: url("images/bg_in_veld_groot_3.jpg") no-repeat fixed 0 0 / cover white;
+// End KS  
+
 }
 
 body {
   font-family: $sans-serif-small; // Set from _custom.scss font variables
-  font-size: 87.5%;
+
+// KS
+//  font-size: 87.5%;
+// Standaard tekstkleur
+// color: $col_kobaltblauw;
+// End KS
 }
 
 
@@ -52,10 +61,14 @@ body {
  *   HTML Elements
  * ========================================================================== */
 
-h1 {}
+h1 {
+	color:  $col_donkerblauw;
+}
 
 
-h2 {}
+h2 {
+	color:  $col_donkerblauw;
+}
 
 
 h3 {}
@@ -157,37 +170,102 @@ var {
  * margins etc.
  */
 
-#page-wrapper {}
+#page-wrapper {
+}
 
 
 #page  {
-  &.container {}
+  &.container {
+// KS
+//  background: white;
+  background: rgba(255, 255, 255, 0.75); 
+  
+//  background: $col_bg_white;  // witte achtergrond met transparantie 75%
+
+    max-width: 940px;  // standaard=1140px, 940px is de breedte van de achtergrondafbeelding 
+    
+    
+// End KS
+	}
 }
 
 
 /*
  * Wraps all header elements - branding and .region-header
  */
-#header {}
+#header {
+}
 
+
+// KS. Links naar Ledenpagina, mail,  
+#menu-bar {
+	height: 1em;
+	
+	.block {
+	   float: right;
+	}
+}
+// End KS
 
 /*
  * Wraps the sidebars the content column
  */
-#columns {}
+#columns {	
+// KS	
+//	min-height: 600px;
+// End KS
+	}
+	
+// KS   
+/*
+ * Voorpagina krijgt een iets andere bovenmarge.
+ */
+// panel-flexible-voorpagina --> verwijst naar custom lay-out
+#content .panels-flexible-voorpagina {	
+    margin-top: 7%;
+}
+// End KS
 
 
 /*
  * Main content column wrapper
  */
-#content-column {}
 
+
+// KS 
+// Plaats het blokje 'Terug' in de content-area rechts naast de titel
+
+#content #block-block-3 {
+//  Content van het blok 
+	p a {
+	   float: right;
+       font-size: 120%;
+       color: $col_geel;             // geel
+       background: $col_kobaltblauw; // kobaltblauw
+       padding: 0 10px;  // padding links en rechts
+
+	}
+}
+// End KS
+ 
+#content-column {
+
+}
+
+
+.node-voorpagina-top img {
+	position:  absolute;
+	opacity: .4;
+	z-index: -1;
+}
 
 /*
  * Wraps the main-content-header, the content region and feed-icons. Use this
  * wrapper to style the entire main content column
  */
-#main-content {}
+#main-content {
+
+}
 
 
 /*
@@ -197,11 +275,118 @@ var {
 #content {}
 
 
+// KS
+/*
+ * Opmaak 4 kolommen (panels) op voorpagina
+ *
+ */
+ .panels-flexible-voorpagina_v3-inside {
+   padding-left: 20px;
+   padding-top: 20px;
+
+ }
+
+
+.vp_col {
+//	padding: 0;
+	float: left;
+	width: 25%;
+
+}
+
+
+.page-user {
+	h2 {
+	   margin-top: 0.25em;
+	   font-size: 1.25em;
+    }
+}
+
+
+.page-ledenpagina {
+    ul.menu {
+       margin-top: 0.25em;
+    }
+
+    ul.menu li a {
+       font-size: 1em;
+    } 
+    
+}
+
+// Overzicht fotogalerijen (view)
+.page-foto {
+	h3 {
+	   display: none;
+	}
+	
+	.item-list ul {
+	   list-style-type: none;
+	}
+	.views-field-field-foto {
+	   float: left;
+	   margin-top: 1em;
+	}
+    .views-field-body{
+        min-height: 125px;
+        padding-left: 200px;
+        padding-top: 10px;
+    }
+}
+// Fotogalerij 
+.page-type-fotogalerij {
+	.field-name-field-foto .field-items {
+	   max-width: 900px;
+	}
+	
+	.field-name-field-foto .field-item {
+	   float: left;
+	   padding-right: 5px;
+	   padding-top: 5px;
+	   
+	}
+	
+}
+
+// End KS
+
+
 /*
  * Footer wrapper
  */
 #footer {}
 
+/*
+ *
+ */
+
+.region-tertiary-content{
+	
+
+}
+
+
+// KS Onderbalk met opmerking 
+.block-region-footer{
+ 
+    color: $col_geel;
+    margin-top: 2em;
+//    background: rgba(255, 255, 255, 0.8);
+    .block {
+       margin: 0;
+    }
+    h2 {
+       display: none;
+    }
+    p {
+       padding-left: 10px;
+       background-color: $col_kobaltblauw;
+       font-style:italic;
+       text-align: center;
+    }
+// End KS 
+	
+}
 
 /*
  * Panels may need additional margin wrangling when in the $content region
@@ -231,7 +416,19 @@ var {
 #header-wrapper {
   /* Debug styles, is this working */
   background: $debug;
-  .container {}
+  .container {
+  }
+}
+
+#header #block-block-4 {
+	background-color: $col_kobaltblauw;
+	float:  right;
+	a {
+	   color: $col_geel;
+    }
+    a:hover {
+        color: white
+    }
 }
 
 
@@ -308,7 +505,11 @@ var {
  * Logo
  */
 #logo {
-  padding: 10px 0;
+	
+//  padding: 10px 0;
+  float: right;
+  padding-top: 15px;
+  padding-right: 15%;  
 
   img {
     vertical-align: bottom;
@@ -337,7 +538,7 @@ var {
 
     &:hover,
     &:focus {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 }
@@ -420,6 +621,10 @@ ul.links {
   }
 }
 
+ul li.leaf {
+    list-style: none;
+}
+
 
 /*
  * Search results are an ordered list so reset the margin
@@ -445,7 +650,7 @@ ul.links {
 
     &:hover,
     &:focus {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 }
@@ -541,15 +746,24 @@ a {
   text-decoration: none;
 
   &:link,
-  &:visited {}
+  &:visited {
+ // KS 
+      color: $col-kobaltblauw;
+ // End KS     
+  }
 
   &:active,
   &.active {}
 
   &:hover,
   &:focus {
-    text-decoration: underline;
-  }
+// KS  
+//    text-decoration: underline;
+      color: $col_donkerblauw;
+      text-decoration: none;
+// KS End      
+	
+}
 }
 
 
@@ -565,6 +779,7 @@ a {
   ul.menu {
     margin: 0;
     padding: 0;
+  
   }
 
   li,
@@ -572,9 +787,11 @@ a {
     display: inline;
     float: left;
     list-style: none;
-    margin: 0;
+    margin-top: 0;
+	margin-left: -15px;
     padding: 0;
-  }
+
+    }
 
   li a,
   ul.menu li a {
@@ -726,10 +943,14 @@ ul.sf-menu {
  * ========================================================================== */
 
 ul.menu {
-  padding-left: 15px;
+//  KS
+//  padding-left: 15px;
+    font-size: 120%;
+//  End KS       
+
 
   ul {
-    padding-left: 15px;
+//    padding-left: 15px;
 
     ul {
       ul {}
@@ -737,13 +958,14 @@ ul.menu {
   }
 
   li {
-    margin: 0;
+    margin: 0 0 0 -15px;
 
     &.collapsed,
     &.expanded,
     &.leaf {}
 
     a {
+      text-decoration: none;  
 
       &:link,
       &:visited {}
@@ -799,48 +1021,7 @@ ul.menu {
  * ========================================================================== */
 
 #breadcrumb {
-  margin: 10px 0;
-
-  /* If the label is set to show in theme settings the label class is added */
-  .breadcrumb-label {
-    font-size: 1em;
-    display: inline;
-    padding-right: 10px;
-
-    &:after {
-      content: ":";
-    }
-  }
-
-  ol {
-    margin: 0;
-    padding: 0;
-  }
-
-  .with-breadcrumb-label ol {
-    display: inline;
-  }
-
-  li {
-    list-style: none;
-    display: inline;
-  }
-
-  li.crumb-first {}
-
-  li.crumb-last {}
-
-  a {
-
-    &:link,
-    &:visited {}
-
-    &:active,
-    &.active {}
-
-    &:hover,
-    &:focus {}
-  }
+	display: none;
 }
 
 
@@ -1010,7 +1191,7 @@ ul.secondary {
       &:hover,
       &.active {
         border-bottom: none;
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
   }
@@ -1245,7 +1426,9 @@ ul.action-links {
  * Main wrapper for most blocks, block_system_main does not have it
  */
 .block {
-  margin-bottom: 20px;
+// KS	
+//   margin-bottom: 20px;
+// KS End
 }
 
 
@@ -1795,7 +1978,7 @@ tbody tr {
 tr {
 
   &.odd {
-    background: $page;
+// KS    background: $page;
   }
 
   /* Table row striping */
@@ -1803,7 +1986,7 @@ tr {
   &.even,
   &:nth-child(2n+2)  {
     border-bottom: 0;
-    background-color: $ultralight;
+// KS    background-color: $ultralight;
   }
 
   &.drag {}
@@ -1811,11 +1994,11 @@ tr {
   &.drag-previous {}
 
   &.odd td.active {
-    background-color: $light;
+// KS    background-color: $light;
   }
 
   &.even td.active {
-    background-color: $medium_light;
+// KS    background-color: $medium_light;
   }
 }
 
@@ -1974,3 +2157,33 @@ tr.error {
     width: auto;
   }
 }
+
+
+/* =============================================================================
+ *   Panels
+ * ========================================================================== */
+
+.panels-flexible-voorpagina {
+	.panels-flexible-voorpagina-inside {
+//		padding-left: 40px;
+	}
+	
+	.panels-flexible-column{
+//	 	width: 20%;
+	}
+	
+	.panels-flexible-column-inside{
+	}
+	
+	.panels-flexible-region{
+	 	width: none;
+	}
+
+	.panels-flexible-region-inside .block{
+	 	margin-bottom: 0px;
+	}
+	
+	
+
+
+}	

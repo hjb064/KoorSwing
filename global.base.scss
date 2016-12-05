@@ -33,7 +33,7 @@ main,
 nav,
 section,
 summary {
-  display: block;
+  display: block; 
 }
 
 
@@ -84,7 +84,7 @@ audio:not([controls]) {
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
-  line-height: 1.5;
+//  line-height: 1.5;
   height: 100%;
   overflow-y: scroll;
 }
@@ -148,26 +148,26 @@ a:active {
  */
 
 h1 {
-  font-size: 2em;
+  font-size: 1.75em;
   margin: 0.67em 0;
 }
 
 
 h2 {
-  font-size: 1.5em;
-  margin: 0.83em 0;
+  font-size: 1.25em;
+  margin: 0.50em 0;
 }
 
 
 h3 {
-  font-size: 1.17em;
-  margin: 1em 0;
+  font-size: 1em;
+  margin: .50em 0;
 }
 
 
 h4 {
   font-size: 1em;
-  margin: 1.33em 0;
+  margin: .50em 0;
 }
 
 
@@ -476,14 +476,13 @@ input[type="radio"] {
 
 /*
  * 1. Addresses appearance set to searchfield in S5, Chrome
- * 2. Reset box-sizing to border-box.
+ * 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
  */
 input[type="search"] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  max-width: 100%;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 
@@ -556,6 +555,9 @@ div.messages,
 .at-gutter {
   margin-left: $gutter-width;
   margin-right: $gutter-width;
+}
+
+#main-content {
 }
 
 /*
